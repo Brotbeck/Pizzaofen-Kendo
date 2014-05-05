@@ -1,0 +1,264 @@
+body, html {
+    background : #495f9b;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+/* COMMON STYLES*/
+.view-content h1 {
+    position : top;
+    color: #42454a;
+    font-size: 1.8em;
+}
+
+.view-content h1.welcome {
+    text-align: center;
+}
+
+.view-content h3 {
+    color: #42454a;
+    font-size: 1.1em;
+}
+
+.view-content p {
+    color: #4a4e54;
+    font-size: 1em;
+}
+
+/* IMAGE STYLES*/
+.img {
+    background-image: url(../styles/images/pizza_ofen2.png);
+    background-repeat: no-repeat;
+    background-position-x: -39px;
+    background-size:cover;
+    text-align: center;
+    height:400px;
+    margin: 0px auto;
+}
+
+.logo {
+    background-image: url(../styles/images/logo.png);
+    background-repeat: no-repeat;
+    width: 319px;
+    height: 60px;
+    margin: 40px auto;
+}
+
+/* BUTTON STYLES*/
+.buttonArea {
+    text-align: center;
+}
+
+.login-button {
+    width: 50%;
+    max-width: 300px;
+    font-size: .9em;
+    -webkit-appearance: none;
+}
+
+/* temperatur display block*/
+
+.temp-block {
+		position : absolute;
+     	top : 110px;
+    	left : 50px;
+    	xxbackground:yellow;
+    	padding : 30;
+    	margin	: 0 0 0 60; 
+}
+
+.otemp {
+	width : 200px;
+    	background:red;
+    	padding : 30;
+    	margin	: 60 0 0 0; 
+}
+
+.otemp p {
+    	margin:  	0px; 
+		float: 	left;
+    	padding:   5px;
+    	margin-top : 24px;
+    	font-size : 10pt;
+}
+
+.otemp li  {
+    	list-style-type : none;
+    	
+}
+
+.otemp .temp-label {
+    	width	: 70px;
+    	text-align: left;
+}
+.otemp .temp-field {
+    border : 1px solid white;
+    float: left;
+    display: block;
+    width	: 60px;
+}
+.temp-input {
+		position : absolute;
+    	top : 300px;
+    	left : 110px;
+    	margin	: 60 0 0 0; 
+}
+
+/* Detail view */
+.info-tag {
+	display		: block;
+	clear		: both;   
+}
+
+.info-label {
+       display	: inline-block;
+       width 	: 140px;
+       height	: 30px;
+   	   float : left;
+}
+
+.info-text {
+    display : block;
+    margin-left :140px;
+}
+
+/* About view */
+.portrait {
+    background-image: url(../styles/images/marc2013.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 40px;
+	height: 60px;
+	float: left;
+	margin: 5px;
+}
+
+
+/* History view */
+#chart {
+  width:  600px;  
+    
+}
+
+.chart-container {
+    width : 100%;
+    overflow: auto;
+}
+
+
+.position-left {
+    float: left;
+}
+
+.position-right {
+    float: right;
+}
+
+.position.center {
+    position: absolute;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* DEVICE SPECIFIC STYLES*/
+#skin-change {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.km-ios .km-listview-wrapper .km-listinset li {
+    background-color: #fff;
+    border-color: #ababab;
+}
+
+.km-ios .km-view .km-content {
+    display:block;
+    background-image: none;
+    background: #f0f0f0;
+}
+
+.km-tablet .km-ios .km-navbar .km-view-title {
+    color: #000;
+    text-shadow: 0 -1px rgba(255,255,255,0.3);
+}
+
+.km-android .view-content h1 {
+    color: #8a8b8f;
+}
+
+.km-android .view-content p,
+.km-android .view-content h3 {
+    color: #2e5968;
+}
+
+.km-android .weather-info.temperature.low {
+    color: #2e5968;
+}
+
+.km-ios .km-view .weather {
+    background: #5fb4ed; /* Old browsers */
+    background: -moz-linear-gradient(top, #5fb4ed 0%, #0076c5 74%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5fb4ed), color-stop(74%,#0076c5)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #5fb4ed 0%,#0076c5 74%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #5fb4ed 0%,#0076c5 74%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #5fb4ed 0%,#0076c5 74%); /* IE10+ */
+    background: linear-gradient(to bottom, #5fb4ed 0%,#0076c5 74%); /* W3C */
+}
+.km-ios7 .km-view .weather,
+.km-wp .km-view .weather,
+.km-flat .km-view .weather {
+    background: #b0b0b0;
+}
+
+.km-flat .km-list > li {
+    box-shadow: none;
+}
+
+.km-ios .km-list > li,
+.km-flat .km-list > li {
+    background: none;
+}
+
+/* Separator Style*/
+.separator > .dark {
+    background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 30%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2) 70%, rgba(0,0,0,0) 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0)), color-stop(30%,rgba(0,0,0,0.2)), color-stop(50%,rgba(0,0,0,0.2)), color-stop(70%,rgba(0,0,0,0.2)), color-stop(100%,rgba(0,0,0,0)));
+    background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 30%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.2) 70%,rgba(0,0,0,0) 100%);
+    background: -o-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 30%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.2) 70%,rgba(0,0,0,0) 100%);
+    background: -ms-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 30%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.2) 70%,rgba(0,0,0,0) 100%);
+    background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 30%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.2) 70%,rgba(0,0,0,0) 100%);
+    height: 1px;
+    border: none;
+    width: 100%;
+    opacity: 0.3;
+}
+
+.separator > .light {
+    background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(50%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)));
+    background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
+    background: -o-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
+    background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
+    height: 1px;
+    border: none;
+    width: 100%;
+    opacity: 0.3;
+}
+
+/* RETINA DISPLAY STYLES*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
+    .img {
+    background-image: url(../styles/images/pizza_ofen2.png);
+    background-repeat: no-repeat;
+    background-position-x: -39px;
+    text-align: center;
+    background-size: cover;
+    margin: 0px auto;
+}
+
+    }
+
+ 

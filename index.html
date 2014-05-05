@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pizza ofen</title>
+    <meta charset="utf-8" />
+    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+    <link href="kendo/styles/kendo.dataviz.min.css" rel="stylesheet" >
+
+    <link href="styles/main.css" rel="stylesheet" />
+
+    <script src="cordova.js"></script>
+    <script src="kendo/js/jquery.min.js"></script>
+    <script src="kendo/js/kendo.all.min.js"></script>
+   <!--  <script src="http://cdn.kendostatic.com/2013.2.716/js/kendo.all.min.js"></script>  -->
+   
+
+   
+
+    <script src="scripts/globals.js"></script>
+    <script src="scripts/history.js"></script>
+    <script src="scripts/oven.js"></script>
+    <script src="scripts/detail.js"></script>
+    <script src="scripts/data.js"></script>
+    <script src="scripts/about.js"></script>
+    <script src="scripts/app.js"></script>
+    <style>
+        html .km-wp-light .km-content,
+        html .km-wp-light .km-button,
+        html .km-wp-light .km-navbar,
+        html .km-wp-light .km-detail,
+        html .km-wp-light *:not(.k-label) > input:not(.k-input),
+        html .km-wp-light .k-dropdown,
+        html .km-wp-light *:not(.k-label) > textarea,
+        html .km-wp-light *:not(.k-label) > select {
+            background: #fff;
+        }
+    </style>
+</head>
+    
+    
+   
+    
+<body>
+      <!-- ** H O M E **   this is the main page with the temperatur display-->
+
+    <div id="tabstrip-home"
+         data-role="view"
+         data-title="Home"
+         data-model= "app.ovenService.viewModel" 
+         data-layout="pizzaoven-layout">
+
+        <div class="view-content">
+            <h3>Temperature measurement </h3>
+            <div class="img">
+            	<h1 class="welcome">Pizza oven build 2006</h1> 
+              	<div class="temp-block">
+                	<ul class="otemp">
+                    	<li>
+                      		<p class="temp-label">Cupola</p>
+                      		<p class="temp-field" id="cTemp" data-bind="text: cTemperature"/>    
+                    	</li>
+                    	<li>
+                    	  	<p class="temp-label">Room</p>
+                   		   	<p class="temp-field" id="rTemp" data-bind="text: rTemperature"/>    
+                    	</li>
+                    	<li>
+                    	   	<p class="temp-label">Floor</p>
+                    	   	<p class="temp-field" id="fTemp" data-bind="text: fTemperature"/>    
+                   		</li>
+                	</ul>                                   
+                </div>
+                <div class="temp-input">
+                    <label>Target<input class='mb-input' type= "text" data-bind="value:tTemperature" /></label>
+                </div>  
+        	</div>
+        </div>
+    </div>
+  	<!--end of Home-->
+     
+
+    <!-- ** D E T A I L ** this ist the page with the details of the pizza oven electronic-->
+    
+    <div id="tabstrip-detail"
+        data-role="view"
+        data-title="Detail"
+        data-model="app.detailService.viewModel"
+        data-before-show="app.detailService.viewModel.getInfo"
+		data-layout="pizzaoven-layout">
+
+        <div class="view-content">
+            <div class="logo"></div>
+            <p class="info-tag"><span class="info-label">imp SW-Version :</span><span class="info-text" data-bind="text: impVersion"></span></p>
+            <p class="info-tag"><span class="info-label">imp OS :</span><span class="info-text" data-bind="text: impOS"></span> </p>
+            <p class="info-tag"><span class="info-label">imp Wifi :</span><span class="info-text" data-bind="text: impWifi"></span> </p>
+            <p class="info-tag"><span class="info-label">imp Wifi signal :</span><span class="info-text" data-bind="text: impSignal"></span> </p>
+            <p class="info-tag"><span class="info-label">imp MAC addresse :</span><span class="info-text" data-bind="text: impMAC"></span> </p>
+            <p class="info-tag"><span class="info-label">imp free memory :</span><span class="info-text" data-bind="text: impMemory"></span> </p>
+            <p class="info-tag"><span class="info-label">imp Temp errors :</span><span class="info-text" data-bind="text: impTemErrors"></span> </p>
+            <p class="info-tag"><span class="info-label">imp disconnection :</span><span class="info-text" data-bind="text: impDisconnections"></span> </p>
+            <p class="info-tag"><span class="info-label">imp HTTP errors   :</span><span class="info-text" data-bind="text: impHTTPErrors"></span> </p>
+        </div>
+    </div>
+  <!--end of Detail-->
+    
+    
+    <!-- ** H I S T O R Y ** This is the history of the temp data since the app was started-->
+    
+    <div id="tabstrip-history"
+        data-role= "view"
+        data-title="History"
+        data-model="app.historyService.viewModel"
+        data-before-show="app.historyService.viewModel.onShow"
+        data-layout="pizzaoven-layout">
+    
+        <div class="view-content">
+             <div class="history-titel"></div>
+             <p class="history-text" id="detailtext" data-bind="text: historyTxt"/>
+             <div class="history-button"> 
+               <a data-role="button" data-click="app.historyService.viewModel.onSeconds">Seconds</a>
+               <a data-role="button" data-click="app.historyService.viewModel.onMinutes">Minutes</a>
+               <a data-role="button" data-click="app.historyService.viewModel.onHours">Hours</a>
+             </div>
+             <div class="chart-container" id="chart"> </div>
+        </div>
+    </div> 
+    <!--end of history-->
+    
+    <!-- ** A B O U T *** This is the information about this project and my self :-) -->
+
+    <div id="tabstrip-about"
+        data-role="view"
+        data-title="Infos"
+        data-model="app.aboutService.viewModel"
+        data-layout="pizzaoven-layout">
+
+        <div class="view-content">
+            <h3 class="about-title">about this project and me </h3>
+			<div class="portrait"></div>
+            <p class="about-text" id="about-me">
+                My name is Marc Brotbeck and I am trying to learn how
+                to connect everything to the internet cloud.
+            </p>
+                                      
+                                
+        </div>
+    </div> 
+    <!--end of about-->
+
+
+    <!--Layout-->
+    <section data-role="layout" data-id="pizzaoven-layout">
+
+        <!--Header-->
+        <header data-role= "header">
+            <div data-role="navbar">
+                <span data-role="view-title">ofen</span>
+            </div>
+        </header>
+
+        <!--Footer-->
+        <footer data-role="footer">
+            <div data-role="tabstrip">
+                <a href="#/"                data-icon="home">Home</a>
+                <a href="#tabstrip-detail"  data-icon="details">Info</a>
+                <a href="#tabstrip-history" data-icon="recents">Data</a>
+                <a href="#tabstrip-about"   data-icon="about">About</a>
+            </div>
+        </footer>
+    </section>
+
+</body>
+</html>
